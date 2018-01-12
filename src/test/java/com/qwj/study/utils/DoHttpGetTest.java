@@ -7,7 +7,9 @@
  */
 package com.qwj.study.utils;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.gson.JsonObject;
+import com.qwj.CommonUtils.HttpRequestUtil;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.util.EntityUtils;
@@ -34,10 +36,10 @@ public class DoHttpGetTest {
         String cookies = null;
         String url = "http://www.baidu.com";
 
-        CloseableHttpResponse response = util.doHttpGet(url,params,cookies);
-        HttpEntity entity = response.getEntity();
+        String response = util.doHttpGet(url,params,cookies);
+//        HttpEntity entity = response.getEntity();
         System.out.println("response is " + response);
-        System.out.println("entity is " + entity);
+//        System.out.println("entity is " + entity);
 
     }
 
@@ -53,14 +55,17 @@ public class DoHttpGetTest {
 
         String url = "https://cs.ddyc.com/cloud-stock/epc/getPartPics";
         String cookie = null;
-        CloseableHttpResponse response = util.doHttpGet(url,params,getLogonCookie());
+        String response = util.doHttpGet(url,params,getLogonCookie());
 
+        response = response.substring(0,response.length()-2);
+
+        JSONObject responseObject = new JSONObject();
+        responseObject = JSONObject.parseObject(response);
         //判断response是否成功
-        System.out.println("status:" + response.getStatusLine().getStatusCode());
+        System.out.println("status:" + responseObject.get("success").toString());
 
         //把Response内的Entity内容转换成String
-        String result = EntityUtils.toString(response.getEntity());
-        System.out.println("result:" + result);
+        System.out.println("result:" + response);
 
     }
 

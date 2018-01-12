@@ -8,8 +8,8 @@
 package com.qwj.api.auto;
 
 import com.jayway.restassured.response.Response;
-import com.qwj.common.*;
-import com.qwj.excel.common.*;
+import com.qwj.CommonUtils.SheetUtils;
+import com.qwj.DataHandle.excel.*;
 import org.apache.commons.io.IOUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;

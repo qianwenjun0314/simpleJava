@@ -5,9 +5,10 @@
  * Date:     2017/12/7 16:14
  * Description: http请求工具类
  */
-package com.qwj.study.utils;
+package com.qwj.CommonUtils;
 
 import com.google.gson.JsonObject;
+import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -18,7 +19,10 @@ import org.apache.http.impl.client.HttpClients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.Map;
 
@@ -79,7 +83,7 @@ public class HttpRequestUtil {
         return null;
     }
 
-    public  CloseableHttpResponse doHttpGet (String url , Map<String,Object> params , String cookie) {
+    public  String doHttpGet (String url , Map<String,Object> params , String cookie) {
         CloseableHttpClient httpClient  = HttpClients.createDefault();
         //拼接参数
         for (Map.Entry<String,Object> param : params.entrySet()) {
@@ -97,12 +101,27 @@ public class HttpRequestUtil {
         httpGet.setHeader("cookie",cookie);
 
         CloseableHttpResponse response = null;
+        StringBuilder entityStringBuilder = null;
+
         try {
             response = httpClient.execute(httpGet);
+            try {
+                HttpEntity entity = response.getEntity();
+                entityStringBuilder = new StringBuilder();
+                if (null != entity) {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"), 8 * 1024);
+                    String line = null;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        entityStringBuilder.append(line + "/n");
+                    }
+                }
+            } finally {
+                response.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return response;
+        return entityStringBuilder.toString();
 
     }
 

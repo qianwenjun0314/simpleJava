@@ -8,6 +8,8 @@
 package com.qwj.study.utils;
 
 import com.google.gson.JsonObject;
+import com.qwj.CommonUtils.HttpRequestUtil;
+import com.qwj.CommonUtils.LogUtil;
 import org.apache.http.HeaderIterator;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.util.EntityUtils;

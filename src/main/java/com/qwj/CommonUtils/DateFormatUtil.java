@@ -5,7 +5,7 @@
  * Date:     2017/12/6 11:47
  * Description: 日期格式化
  */
-package com.qwj.study.utils;
+package com.qwj.CommonUtils;
 
 
 

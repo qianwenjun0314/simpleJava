@@ -5,11 +5,11 @@
  * Date:     2017/12/13 15:13
  * Description: http请求生成
  */
-package com.qwj.excel.common;
+package com.qwj.DataHandle.excel;
 
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
-import com.qwj.study.utils.LogUtil;
+import com.qwj.CommonUtils.LogUtil;
 import org.apache.commons.io.IOUtils;
 
 import java.io.BufferedReader;

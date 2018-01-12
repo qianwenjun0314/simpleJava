@@ -5,7 +5,7 @@
  * Date:     2017/12/12 21:57
  * Description:
  */
-package com.qwj.study.utils;
+package com.qwj.CommonUtils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

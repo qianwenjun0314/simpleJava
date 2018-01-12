@@ -27,7 +27,7 @@
           <groupId>javax.servlet</groupId>
           <artifactId>javax.servlet-api</artifactId>
           <version>3.1.0</version>
-      </dependency>
+    </dependency>
 
     <!-- log4j -->
     <dependency>
@@ -163,6 +163,16 @@
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>6.8</version>
+    </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.7.25</version>
+      </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.5</version>
     </dependency>
 
 
