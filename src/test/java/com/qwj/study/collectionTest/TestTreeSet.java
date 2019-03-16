@@ -42,7 +42,7 @@ public class TestTreeSet {
         List<? extends Animal> list2 = new ArrayList<Dog>();
         List<?> list3 = new ArrayList<Dog>();
         List<? super Dog> list4 = new ArrayList<Animal>();
-        //List<Dog> list4 = new ArrayList<Dog>();
+        //List<Obj> list4 = new ArrayList<Obj>();
 
         //这个是作为add（Dog d）的使用多态机制，但是在实际调用lis这个引用变量的时候使用的是Dog类型的方法，不能使用LittleDog类型的方法
 //        list4.add(new Animal());
